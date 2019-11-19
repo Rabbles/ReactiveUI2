@@ -34,7 +34,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(154, 30);
+            this.textBoxName.Location = new System.Drawing.Point(12, 12);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 22);
             this.textBoxName.TabIndex = 0;
@@ -42,7 +42,7 @@
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
-            this.labelMessage.Location = new System.Drawing.Point(154, 75);
+            this.labelMessage.Location = new System.Drawing.Point(12, 51);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(0, 17);
             this.labelMessage.TabIndex = 1;
@@ -51,11 +51,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(443, 77);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.textBoxName);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Get Reactive!";
             this.ResumeLayout(false);
             this.PerformLayout();
 

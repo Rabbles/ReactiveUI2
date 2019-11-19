@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using ReactiveUI;
+using System.Reactive.Disposables;
 
 namespace ReactiveUI2
 {
@@ -19,8 +14,11 @@ namespace ReactiveUI2
             this.WhenActivated(
                 disposables =>
                 {
-                   disposables(this.Bind(ViewModel, x => x.Name, x => x.textBoxName.Text));
-                   disposables(this.OneWayBind(ViewModel, x => x.Message, x => x.labelMessage.Text));
+                this.Bind(ViewModel, vm => vm.Name, v => v.textBoxName.Text)
+                 .DisposeWith(disposables);
+
+                this.OneWayBind(ViewModel, vm => vm.Message, v => v.labelMessage.Text)
+                .DisposeWith(disposables);
                 });
 
 

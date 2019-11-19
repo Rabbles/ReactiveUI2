@@ -12,7 +12,7 @@ namespace ReactiveUI2
 
         public MainViewModel()
         {
-            this.WhenAny(x => x.name, x => x.Value)
+            this.WhenAny(vm => vm.Name, vm => vm.Value)
                 .Select(this.GetMessage)
                 .Do(message => this.Message = message)
                 .Subscribe();
@@ -34,9 +34,9 @@ namespace ReactiveUI2
         {
             if (string.IsNullOrEmpty(name))
             {
-                return $"Enter your name";
+                return "Enter your name";
             }
-            return $"Welcome to the dinosuar book {name}";
+            return $"Welcome to the future {name}, ReactiveUI with Winforms.";
         }
     }
 }
