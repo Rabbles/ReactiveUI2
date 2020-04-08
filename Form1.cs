@@ -1,6 +1,5 @@
 ﻿using System.Windows.Forms;
 using ReactiveUI;
-using System.Reactive.Disposables;
 
 namespace ReactiveUI2
 {
@@ -14,11 +13,8 @@ namespace ReactiveUI2
             this.WhenActivated(
                 disposables =>
                 {
-                this.Bind(ViewModel, vm => vm.Name, v => v.textBoxName.Text)
-                 .DisposeWith(disposables);
-
-                this.OneWayBind(ViewModel, vm => vm.Message, v => v.labelMessage.Text)
-                .DisposeWith(disposables);
+                    this.Bind(ViewModel, vm => vm.Name, v => v.textBoxName.Text);
+                    this.OneWayBind(ViewModel, vm => vm.Message, v => v.labelMessage.Text);
                 });
 
 

@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using System;
 using System.Linq;
 using System.Reactive.Linq;
@@ -7,28 +8,19 @@ namespace ReactiveUI2
 {
     public class MainViewModel : ReactiveObject
     {
-        private string name;
-        private string message;
-
         public MainViewModel()
         {
-            this.WhenAny(vm => vm.Name, vm => vm.Value)
+            this.WhenAnyValue(vm => vm.Name)
                 .Select(this.GetMessage)
                 .Do(message => this.Message = message)
                 .Subscribe();
         }
  
-        public string Name
-        {
-            get => name;
-            set => this.RaiseAndSetIfChanged(ref name, value);
-        }
+        [Reactive]
+        public string Name { get; set; }
 
-        public string Message
-        {
-            get => message;
-            set => this.RaiseAndSetIfChanged(ref message, value);
-        }
+        [Reactive]
+        public string Message { get; set; }
 
         private string GetMessage(string name)
         {
